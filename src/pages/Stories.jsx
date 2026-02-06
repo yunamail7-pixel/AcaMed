@@ -16,26 +16,39 @@ const Stories = () => {
     ];
 
     return (
-        <div className="pt-56 pb-40 bg-lab-gray bg-grid-pattern min-h-screen">
-            <section className="max-w-7xl mx-auto px-10">
-                <header className="max-w-4xl mb-40">
+        <div className="bg-lab-gray min-h-screen">
+            {/* Banner Section */}
+            <div className="relative h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden mb-20">
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=2000" // History / Library / Lab mix
+                        alt="Stories Banner"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-slate-900/60" />
+                </div>
+                <div className="relative z-10 text-center px-6">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="flex items-center space-x-4 mb-10"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                     >
-                        <span className="h-px w-12 bg-secondary" />
-                        <span className="text-[11px] font-mono font-bold text-secondary tracking-[0.4em] uppercase">Chronical Evolution</span>
+                        <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight drop-shadow-lg">
+                            {t('stories_page.title')}
+                        </h1>
+                        <p className="text-lg text-emerald-50 max-w-2xl mx-auto font-medium leading-relaxed">
+                            Tracing our roots from academic research to international recognition, driven by a commitment to purity and efficacy.
+                        </p>
                     </motion.div>
-                    <h1 className="text-7xl md:text-9xl font-black mb-12 tracking-tighter text-slate-900 leading-none">{t('stories_page.title')}</h1>
-                    <div className="h-1.5 w-32 bg-secondary rounded-full" />
-                </header>
+                </div>
+            </div>
+
+            <section className="max-w-7xl mx-auto px-6 md:px-10 pb-40">
 
                 {/* 發展歷程：更具科研儀表盤感 */}
                 <div className="mb-56 grid lg:grid-cols-3 gap-20">
                     <div className="col-span-1 border-r border-slate-100 pr-10">
                         <h2 className="text-3xl font-black mb-8 flex items-center gap-4 text-slate-900">
-                            <div className="p-3 bg-slate-900 text-white rounded-xl"><History size={20} /></div>
+                            <div className="p-3 bg-secondary text-white rounded-xl"><History size={20} /></div>
                             {t('stories_page.history_h')}
                         </h2>
                         <p className="text-slate-500 font-medium leading-relaxed italic">

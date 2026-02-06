@@ -6,12 +6,12 @@ import { useTranslation } from 'react-i18next';
 const Footer = () => {
     const { t } = useTranslation();
     return (
-        <footer className="bg-slate-900 text-white pt-32 pb-16 relative overflow-hidden">
+        <footer className="bg-primary text-white pt-32 pb-16 relative overflow-hidden">
             {/* 裝飾性背景元素 */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
             <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-secondary/5 rounded-full blur-[100px]" />
 
-            <div className="max-w-7xl mx-auto px-10 grid md:grid-cols-4 gap-20 mb-32 relative z-10">
+            <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-4 gap-20 mb-32 relative z-10">
                 <div className="col-span-1 md:col-span-1">
                     <div className="flex items-center space-x-4 mb-10">
                         <div className="w-12 h-12 bg-white flex items-center justify-center rounded-xl text-slate-900 font-black text-2xl shadow-2xl">A</div>
@@ -73,7 +73,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-10 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[9px] font-black tracking-[0.4em] text-slate-500 uppercase">
+            <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[9px] font-black tracking-[0.4em] text-slate-500 uppercase">
                 <p>{t('footer.rights')}</p>
                 <div className="flex space-x-10 mt-8 md:mt-0">
                     <a href="#" className="hover:text-white transition-colors">Pharmacology Disclaimer</a>

@@ -10,21 +10,21 @@ const Home = () => {
 
     const slides = [
         {
-            image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=2000", // 科研試管與實驗室
+            image: "/img_reishi.jpg", // 改用本地圖片，確保絕對能顯示
             tag: t('home.hero_tag'),
             title: t('home.hero_title'),
             subtitle: t('home.hero_subtitle'),
             desc: t('home.hero_desc'),
         },
         {
-            image: "/img_reishi.jpg",
+            image: "https://images.unsplash.com/photo-1615937657715-bc7b4b7960c9?auto=format&fit=crop&q=80&w=2000", // 科學萃取/綠色液體 (保留這張，如果不穩再換)
             tag: t('home.slide2_tag'),
             title: t('home.slide2_title'),
             subtitle: t('home.slide2_subtitle'),
             desc: t('home.slide2_desc'),
         },
         {
-            image: "/img_lab.jpg",
+            image: "/img_lab.jpg", // 改用本地圖片，確保絕對能顯示
             tag: t('home.slide3_tag'),
             title: t('home.slide3_title'),
             subtitle: t('home.slide3_subtitle'),
@@ -43,161 +43,178 @@ const Home = () => {
     const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
     return (
-        <div className="overflow-x-hidden bg-lab-gray bg-grid-pattern">
-            {/* 核心英雄區塊：更有科研純淨感 */}
-            <section className="relative h-screen min-h-[750px] flex items-center overflow-hidden bg-slate-900">
+        <div className="overflow-x-hidden bg-white">
+            {/* 核心英雄區塊：回歸綠色品牌色 - 更新：字體縮小，圖片更清晰 */}
+            <section className="relative h-screen min-h-[750px] flex items-center overflow-hidden bg-primary">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentSlide}
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }} // 讓背景圖片完全不透明，清晰顯示
+                        animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 1.5 }}
+                        transition={{ duration: 1 }}
                         className="absolute inset-0 z-0"
                     >
                         <img
                             src={slides[currentSlide].image}
                             alt="Background"
-                            className="w-full h-full object-cover" // 移除 opacity-80 以增加亮度
+                            className="w-full h-full object-cover object-center"
                         />
-                        {/* 降低漸層覆蓋濃度，讓圖片細節展現出來 */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-900/10 to-transparent" />
+                        {/* 修正：極輕量遮罩，僅在最左側確保文字可讀，絕不遮擋圖片主體 */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/75 to-transparent" />
                     </motion.div>
                 </AnimatePresence>
-
-                {/* 裝飾性科研元素：掃描線與座標 */}
-                <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
-                    <div className="absolute top-1/4 left-10 w-24 h-24 border-l border-t border-secondary/30 opacity-40" />
-                    <div className="absolute bottom-1/4 right-10 w-24 h-24 border-r border-b border-secondary/30 opacity-40" />
-                    <motion.div
-                        animate={{ y: ["0%", "100%", "0%"] }}
-                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                        className="absolute top-0 left-0 right-0 h-px bg-secondary/10 shadow-[0_0_15px_rgba(14,165,233,0.3)]"
-                    />
-                </div>
 
                 <div className="relative z-20 max-w-7xl mx-auto px-8 w-full">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentSlide}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -30 }}
-                            transition={{ duration: 0.8 }}
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 50 }}
+                            transition={{ duration: 0.6 }}
                             className="max-w-4xl text-white"
                         >
-                            <div className="inline-flex items-center space-x-3 mb-10">
-                                <span className="h-px w-8 bg-secondary" />
-                                <span className="text-xs font-mono font-bold text-secondary tracking-[0.3em] uppercase">
+                            <div className="inline-flex items-center space-x-3 mb-8">
+                                <span className="h-px w-12 bg-emerald-400" />
+                                <span className="text-sm font-bold text-emerald-400 tracking-[0.3em] uppercase">
                                     {slides[currentSlide].tag}
                                 </span>
                             </div>
-                            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[0.95] tracking-tighter">
+                            {/* 更新：字體大小縮小至 3xl/5xl */}
+                            <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight drop-shadow-lg">
                                 {slides[currentSlide].title} <br />
-                                <span className="text-secondary opacity-90">{slides[currentSlide].subtitle}</span>
+                                <span className="text-emerald-300">{slides[currentSlide].subtitle}</span>
                             </h1>
-                            <p className="text-xl md:text-2xl text-slate-300 mb-14 leading-relaxed max-w-2xl font-medium border-l-2 border-secondary/30 pl-8">
+                            <p className="text-base md:text-lg text-emerald-50 mb-10 leading-relaxed max-w-lg font-medium opacity-90">
                                 {slides[currentSlide].desc}
                             </p>
-                            <div className="flex flex-col sm:flex-row space-y-5 sm:space-y-0 sm:space-x-8">
-                                <NavLink to="/products" className="btn-primary flex items-center justify-center space-x-3 group">
+                            <div className="flex flex-col sm:flex-row space-y-5 sm:space-y-0 sm:space-x-6">
+                                <NavLink to="/products" className="px-10 py-5 bg-white text-primary font-black rounded-full hover:bg-emerald-50 transition-all shadow-xl flex items-center justify-center gap-3 group">
                                     <span>{t('home.cta_products')}</span>
-                                    <ChevronRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
+                                    <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </NavLink>
-                                <NavLink to="/about" className="flex items-center justify-center space-x-3 px-10 py-5 rounded-xl border border-white/20 text-white hover:bg-white/5 transition-all font-black uppercase tracking-widest text-xs backdrop-blur-sm">
+                                <NavLink to="/about" className="px-10 py-5 border-2 border-emerald-400/50 text-white font-black rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-3">
                                     <span>{t('home.cta_more')}</span>
-                                    <Database size={16} className="text-secondary" />
                                 </NavLink>
                             </div>
                         </motion.div>
                     </AnimatePresence>
                 </div>
 
-                {/* 輪播進度與控制 */}
-                <div className="absolute bottom-16 left-8 z-30 flex items-end space-x-12">
-                    <div className="flex flex-col space-y-4">
-                        {slides.map((_, i) => (
-                            <button
-                                key={i}
-                                onClick={() => setCurrentSlide(i)}
-                                className="group flex items-center space-x-4"
-                            >
-                                <span className={`text-xs font-mono transition-colors ${currentSlide === i ? 'text-secondary' : 'text-slate-500'}`}>0{i + 1}</span>
-                                <div className={`h-1 rounded-full transition-all duration-700 ${currentSlide === i ? 'w-12 bg-secondary' : 'w-4 bg-slate-700 group-hover:bg-slate-500'}`} />
-                            </button>
-                        ))}
+                {/* 輪播指示器 */}
+                <div className="absolute bottom-12 right-12 z-20 flex space-x-3">
+                    {slides.map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setCurrentSlide(i)}
+                            className={`w-3 h-3 rounded-full transition-all ${currentSlide === i ? 'bg-white w-8' : 'bg-white/30 hover:bg-white/50'}`}
+                        />
+                    ))}
+                </div>
+            </section>
+
+            {/* Scientific Standard Section - 修復圖片與配色 */}
+            <section className="py-32 relative z-10 bg-[#F0FDF4]">
+                <div className="max-w-7xl mx-auto px-10 flex flex-col lg:flex-row items-center gap-20">
+                    <div className="flex-1 space-y-8">
+                        <div className="flex items-center space-x-3 mb-4">
+                            <span className="h-px w-10 bg-primary"></span>
+                            <span className="text-primary font-bold tracking-[0.3em] text-xs uppercase">Modernizing Medicine</span>
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-black text-slate-900 leading-tight tracking-tight">
+                            The standard of <br />
+                            <span className="text-primary">scientific herbalism.</span>
+                        </h2>
+                        <p className="text-base text-slate-600 leading-relaxed font-medium">
+                            We don't manufacture; we decode. By applying pharmaceutical-grade rigor to traditional herbs, AcaMed creates the next generation of precision health solutions.
+                        </p>
+                        <div className="grid grid-cols-2 gap-8 pt-8">
+                            <div className="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100">
+                                <Beaker className="text-primary mb-4" size={28} />
+                                <h4 className="font-bold text-slate-900 mb-1">Cold Extraction</h4>
+                                <p className="text-xs text-slate-500">Zero-heat isolation</p>
+                            </div>
+                            <div className="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100">
+                                <Cpu className="text-primary mb-4" size={28} />
+                                <h4 className="font-bold text-slate-900 mb-1">Precision</h4>
+                                <p className="text-xs text-slate-500">Targeted molecular</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex-1 relative">
+                        <div className="absolute inset-0 bg-primary/5 rounded-[3rem] transform rotate-3" />
+                        <img
+                            src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1000"
+                            alt="Modern Pharma Lab"
+                            className="relative z-10 rounded-[3rem] shadow-2xl border-4 border-white object-cover aspect-[4/3]"
+                        />
                     </div>
                 </div>
             </section>
 
-            {/* 科研實力數據區塊 */}
-            <section className="py-40 relative z-10 border-b border-slate-200 bg-white">
-                <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 lg:grid-cols-4 gap-16">
+            {/* 科研實力數據區塊 - 綠色風格 */}
+            <section className="py-24 bg-primary text-white relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 lg:grid-cols-4 gap-16 relative z-10">
                     {[
                         { label: "Extraction Purity", value: "99.7", unit: "%", sub: "Cold-extraction accuracy" },
                         { label: "Research History", value: "40", unit: "+", sub: "Years of Professor Wu's R&D" },
                         { label: "Clinical Trials", value: "FDA", unit: "II", sub: "U.S. & Taiwan FDA Approved" },
                         { label: "Medical Books", value: "700", unit: "+", sub: "Digitized TCAM knowledge" },
                     ].map((stat, i) => (
-                        <div key={i} className="space-y-4">
-                            <p className="text-xs font-black text-secondary tracking-widest uppercase">{stat.label}</p>
-                            <div className="flex items-baseline space-x-1">
-                                <span className="stat-value text-slate-900">{stat.value}</span>
-                                <span className="text-secondary font-bold">{stat.unit}</span>
+                        <div key={i} className="space-y-4 text-center lg:text-left">
+                            <p className="text-xs font-bold text-emerald-400 tracking-widest uppercase">{stat.label}</p>
+                            <div className="flex items-center justify-center lg:justify-start space-x-1">
+                                <span className="text-4xl font-black text-white">{stat.value}</span>
+                                <span className="text-emerald-400 font-bold text-lg">{stat.unit}</span>
                             </div>
-                            <p className="text-xs text-slate-400 font-medium">{stat.sub}</p>
+                            <p className="text-sm text-emerald-100/70 font-medium">{stat.sub}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* 現代化中藥 R&D 區塊 */}
-            <section className="py-48 relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-32 items-center">
-                    <div className="relative">
-                        <div className="absolute -top-10 -left-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl opacity-50" />
-                        <h2 className="text-sm font-black text-secondary tracking-[0.4em] uppercase mb-10 flex items-center">
-                            <span className="w-8 h-px bg-secondary mr-4" />
-                            Modernizing Medicine
-                        </h2>
-                        <h3 className="text-5xl md:text-7xl font-black text-slate-900 mb-10 tracking-tighter leading-[1.1]">
-                            The standard of <br />
-                            <span className="text-secondary italic">scientific herbalism.</span>
-                        </h3>
-                        <p className="text-xl text-slate-500 mb-16 font-medium leading-relaxed max-w-xl">
-                            We don't manufacture; we decode. By applying pharmaceutical-grade rigor to traditional herbs, Changan Biotech creates the next generation of precision health solutions.
-                        </p>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                            {[
-                                { icon: <Beaker size={24} />, title: "Cold Extraction", text: "Zero-heat isolation." },
-                                { icon: <Cpu size={24} />, title: "Precision", text: "Targeted molecular delivery." },
-                                { icon: <Shield size={24} />, title: "Quality", text: "Chemical consistency check." },
-                                { icon: <Leaf size={24} />, title: "Herbal Roots", text: "2000 years of clinical history." }
-                            ].map((item, i) => (
-                                <li key={i} className="flex space-x-6 items-start">
-                                    <div className="p-3 bg-secondary/10 text-secondary rounded-xl">{item.icon}</div>
-                                    <div>
-                                        <h4 className="font-bold text-slate-900 text-lg mb-1">{item.title}</h4>
-                                        <p className="text-slate-400 text-sm font-medium">{item.text}</p>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="relative group">
-                        <div className="absolute inset-0 border border-secondary/20 translate-x-10 translate-y-10 rounded-3xl" />
-                        <div className="relative overflow-hidden rounded-3xl shadow-2xl aspect-[4/5]">
-                            <img
-                                src="https://images.unsplash.com/photo-1579165466541-74e24690554a?auto=format&fit=crop&q=80&w=1200"
-                                alt="Modern Pharma Lab"
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2.5s]"
-                            />
-                            <div className="absolute inset-x-8 bottom-8 p-10 glass-morphism rounded-2xl border-l-4 border-secondary">
-                                <p className="text-slate-900 font-bold italic leading-relaxed">
-                                    "Innovation is the bridge connecting the roots of the past with the health of the future."
-                                </p>
-                                <p className="mt-4 text-xs font-black uppercase tracking-widest text-secondary">— Professor Wu</p>
+            {/* 全球通路 - 簡化與綠色整合 */}
+            <section className="py-32 bg-white relative">
+                <div className="max-w-7xl mx-auto px-8 relative z-10">
+                    <div className="flex flex-col md:flex-row items-center justify-between space-y-12 md:space-y-0 md:space-x-20">
+                        <div className="md:w-1/2">
+                            <h2 className="text-sm font-bold text-primary tracking-[0.4em] uppercase mb-6 flex items-center">
+                                <span className="w-8 h-px bg-primary mr-4" />
+                                {t('home.global_presence')}
+                            </h2>
+                            <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 tracking-tight">
+                                {t('home.partnership')} & <span className="text-primary">Global Logistics</span>
+                            </h3>
+                            <p className="text-base text-slate-500 mb-8 leading-relaxed font-medium">
+                                {t('home.amazon_text')}
+                            </p>
+                            <div className="flex items-center space-x-8">
+                                <div className="flex flex-col">
+                                    <span className="text-2xl font-black text-slate-900">Amazon US</span>
+                                    <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Official Store</span>
+                                </div>
+                                <div className="h-10 w-px bg-slate-200" />
+                                <div className="flex flex-col">
+                                    <span className="text-2xl font-black text-slate-900">Global</span>
+                                    <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Shipping</span>
+                                </div>
                             </div>
+                        </div>
+                        <div className="md:w-1/2 grid grid-cols-2 gap-6 w-full">
+                            {[
+                                { icon: <Globe size={28} />, label: "Global Reach", sub: "Serving international markets" },
+                                { icon: <Shield size={28} />, label: "FDA Verified", sub: "Approved clinical standards" },
+                                { icon: <Database size={28} />, label: "700+ Books", sub: "Ancient wisdom digitized" },
+                                { icon: <Cpu size={28} />, label: "Bio-Tech", sub: "Precision cold extraction" }
+                            ].map((item, i) => (
+                                <div key={i} className="p-8 bg-emerald-50/50 rounded-2xl shadow-sm border border-emerald-100 hover:shadow-md hover:bg-emerald-100/50 transition-all text-center">
+                                    <div className="text-primary mb-4 flex justify-center">{item.icon}</div>
+                                    <h4 className="font-bold text-slate-900 mb-1">{item.label}</h4>
+                                    <p className="text-xs text-slate-500 font-medium">{item.sub}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

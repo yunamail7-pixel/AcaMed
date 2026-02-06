@@ -13,9 +13,9 @@ export default {
           dark: '#022C22',
         },
         secondary: {
-          DEFAULT: '#0EA5E9', // 科技藍 (科研、精確)
-          light: '#7DD3FC',
-          dark: '#0369A1',
+          DEFAULT: '#65A30D', // 深蘋果綠 (Lime-600) - 更穩重
+          light: '#84CC16',   // 亮蘋果綠 (Lime-500)
+          dark: '#3F6212',    // 墨綠 (Lime-800)
         },
         accent: {
           DEFAULT: '#8B5CF6', // 醫療紫色 (高端抗衰老)

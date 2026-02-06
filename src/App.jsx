@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -65,7 +65,7 @@ const Contact = () => (
 function App() {
     return (
         <ErrorBoundary>
-            <Router basename="/AcaMed">
+            <Router>
                 <Routes>
                     <Route path="/" element={<Layout><Home /></Layout>} />
                     <Route path="/about" element={<Layout><About /></Layout>} />

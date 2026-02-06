@@ -7,22 +7,33 @@ const About = () => {
     const { t } = useTranslation();
 
     return (
-        <div className="pt-56 pb-40 bg-lab-gray bg-grid-pattern min-h-screen">
-            <section className="max-w-7xl mx-auto px-10">
-                <header className="max-w-4xl mb-40">
+        <div className="bg-lab-gray min-h-screen">
+            {/* Banner Section */}
+            <div className="relative h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden mb-20">
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=2000" // Lab image
+                        alt="About Banner"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-slate-900/60" />
+                </div>
+                <div className="relative z-10 text-center px-6">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="flex items-center space-x-4 mb-10"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                     >
-                        <span className="h-px w-12 bg-secondary" />
-                        <span className="text-[11px] font-mono font-bold text-secondary tracking-[0.4em] uppercase">Corporate Insight</span>
+                        <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight drop-shadow-lg">
+                            {t('about_page.title')}
+                        </h1>
+                        <p className="text-lg text-emerald-50 max-w-2xl mx-auto font-medium leading-relaxed">
+                            Dedicated to bridging Traditional Chinese Medicine with modern biotechnology to create evidence-based anti-aging solutions.
+                        </p>
                     </motion.div>
-                    <h1 className="text-7xl md:text-9xl font-black mb-12 tracking-tighter text-slate-900 leading-none">
-                        {t('about_page.title')}
-                    </h1>
-                    <div className="h-1.5 w-32 bg-secondary rounded-full" />
-                </header>
+                </div>
+            </div>
+
+            <section className="max-w-7xl mx-auto px-6 md:px-10 pb-40">
 
                 {/* 公司概況：更具學術殿堂感 */}
                 <div className="grid lg:grid-cols-2 gap-24 items-center mb-56">
@@ -52,8 +63,8 @@ const About = () => {
                         <div className="absolute -inset-4 border border-slate-200 rounded-[4rem] group-hover:border-secondary/20 transition-colors duration-500" />
                         <div className="rounded-[3.5rem] overflow-hidden shadow-2xl relative aspect-[4/5]">
                             <img
-                                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1200"
-                                alt="Laboratory"
+                                src="https://images.unsplash.com/photo-1579154235884-3323098f98df?auto=format&fit=crop&q=80&w=1200"
+                                alt="Scientific Research"
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3s]"
                             />
                             <div className="absolute inset-0 bg-slate-900/10" />
@@ -70,15 +81,15 @@ const About = () => {
                         <h3 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">{t('about_page.vision_h')}</h3>
                         <p className="text-slate-500 font-medium leading-relaxed">{t('about_page.vision_p')}</p>
                     </div>
-                    <div className="bg-slate-900 p-16 rounded-[3rem] shadow-2xl shadow-slate-900/40 group relative overflow-hidden">
+                    <div className="bg-secondary p-16 rounded-[3rem] shadow-2xl shadow-secondary/40 group relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:rotate-12 transition-transform duration-700">
                             <Shield size={120} className="text-white" />
                         </div>
-                        <div className="w-16 h-16 bg-white/10 text-secondary rounded-2xl flex items-center justify-center mb-10 border border-white/10">
+                        <div className="w-16 h-16 bg-white/10 text-white rounded-2xl flex items-center justify-center mb-10 border border-white/10">
                             <Shield size={32} />
                         </div>
                         <h3 className="text-3xl font-black text-white mb-6 tracking-tight">{t('about_page.org_h')}</h3>
-                        <p className="text-slate-400 font-medium leading-relaxed">{t('about_page.org_p')}</p>
+                        <p className="text-white/90 font-medium leading-relaxed">{t('about_page.org_p')}</p>
                     </div>
                 </div>
 
@@ -86,7 +97,7 @@ const About = () => {
                 <div className="bg-white border border-slate-100 rounded-[4rem] overflow-hidden p-16 lg:p-32 shadow-2xl relative">
                     <div className="absolute top-0 right-0 w-2/3 h-full bg-lab-gray skew-x-12 translate-x-1/2" />
                     <div className="relative z-10 flex flex-col md:flex-row gap-24 items-center">
-                        <div className="w-64 h-64 rounded-[2.5rem] bg-slate-900 flex flex-col items-center justify-center p-8 text-center shadow-2xl">
+                        <div className="w-64 h-64 rounded-[2.5rem] bg-secondary flex flex-col items-center justify-center p-8 text-center shadow-2xl">
                             <Microscope size={60} className="text-secondary mb-4 opacity-80" />
                             <span className="text-[10px] font-black text-white tracking-[0.3em] uppercase opacity-40">CSO / President</span>
                         </div>

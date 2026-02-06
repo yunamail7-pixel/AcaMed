@@ -31,35 +31,35 @@ const Navbar = () => {
     const isLightPage = location.pathname !== '/';
 
     const linkClass = ({ isActive }) =>
-        `relative font-black text-xs tracking-[0.25em] uppercase transition-all duration-300 py-1 ${isActive
+        `relative font-black text-xs tracking-[0.25em] uppercase transition-all duration-300 py-1 whitespace-nowrap ${isActive
             ? 'text-secondary'
             : 'text-slate-600 hover:text-primary'
         }`;
 
     return (
         <nav className="fixed w-full z-50 bg-white border-b border-slate-200/50 py-4 shadow-sm">
-            <div className="max-w-7xl mx-auto px-10 flex justify-between items-center">
+            <div className="max-w-7xl mx-auto px-6 md:px-10 flex justify-between items-center">
                 {/* Logo Section：更有生技公司質感 */}
                 <NavLink to="/" className="flex items-center group">
                     <div className="relative">
-                        <div className="w-12 h-12 bg-slate-900 flex items-center justify-center rounded-xl text-white font-black text-2xl shadow-2xl group-hover:bg-primary transition-colors duration-500">
+                        <div className="w-12 h-12 bg-secondary flex items-center justify-center rounded-xl text-white font-black text-2xl shadow-2xl group-hover:bg-primary transition-colors duration-500">
                             A
                         </div>
                         <div className="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full border-2 border-white shadow-[0_0_10px_rgba(14,165,233,0.5)]" />
                     </div>
-                    <div className="ml-5 flex flex-col">
-                        <span className="text-2xl font-black tracking-tight leading-none transition-colors text-slate-900">
+                    <div className="ml-5 flex flex-col justify-center">
+                        <span className="text-2xl font-black tracking-tight leading-none transition-colors text-slate-900 whitespace-nowrap flex items-center gap-2">
                             AcaMed <span className="text-secondary italic font-light">Pharma</span>
                         </span>
                         <div className="flex items-center space-x-2 mt-1.5">
                             <span className="w-4 h-[1px] bg-secondary opacity-50" />
-                            <span className="text-[11px] font-bold tracking-[0.3em] uppercase opacity-40 text-slate-900">Precision Extraction</span>
+                            <span className="text-[11px] font-bold tracking-[0.3em] uppercase opacity-40 text-slate-900 whitespace-nowrap">Precision Extraction</span>
                         </div>
                     </div>
                 </NavLink>
 
                 {/* 桌面導航：更專業的排版 */}
-                <div className="hidden lg:flex items-center space-x-12">
+                <div className="hidden lg:flex items-center ml-auto pl-20 space-x-12">
                     <div className="flex items-center space-x-10">
                         {navLinks.map((link) => (
                             <NavLink key={link.href} to={link.href} className={linkClass}>
@@ -87,8 +87,8 @@ const Navbar = () => {
                                 key={lng}
                                 onClick={() => changeLanguage(lng)}
                                 className={`text-xs font-black w-8 h-8 rounded-md transition-all ${i18n.language.startsWith(lng)
-                                    ? 'bg-slate-900 text-white shadow-md'
-                                    : 'text-slate-500 hover:text-slate-900 hover:bg-white'
+                                    ? 'bg-secondary text-white shadow-md'
+                                    : 'text-slate-500 hover:text-secondary hover:bg-white'
                                     }`}
                             >
                                 {lng === 'en' ? 'EN' : lng === 'zh' ? '繁' : '简'}
@@ -98,7 +98,7 @@ const Navbar = () => {
 
                     <NavLink
                         to="/contact"
-                        className="px-8 py-3 rounded-xl font-black text-xs tracking-[0.2em] uppercase transition-all shadow-xl hover:translate-y-[-2px] active:translate-y-0 active:shadow-inner bg-slate-900 text-white hover:bg-primary"
+                        className="px-8 py-3 rounded-xl font-black text-xs tracking-[0.2em] uppercase transition-all shadow-xl hover:translate-y-[-2px] active:translate-y-0 active:shadow-inner bg-secondary text-white hover:bg-primary"
                     >
                         {t('nav.contact')}
                     </NavLink>
@@ -140,7 +140,7 @@ const Navbar = () => {
                                 ))}
                             </div>
                             <div className="p-10 border-t border-slate-100 space-y-6">
-                                <NavLink to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block bg-slate-900 text-white py-6 rounded-2xl text-center font-black uppercase tracking-widest text-xs">
+                                <NavLink to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block bg-secondary text-white py-6 rounded-2xl text-center font-black uppercase tracking-widest text-xs">
                                     {t('nav.contact')}
                                 </NavLink>
                             </div>

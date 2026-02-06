@@ -2,7 +2,7 @@
   "name": "acamed-redesign",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://yunamail7-pixel.github.io/AcaMed/",
+  "homepage": "https://yunamail7-pixel.github.io/yunamail/",
   "type": "module",
   "scripts": {
     "dev": "vite",
