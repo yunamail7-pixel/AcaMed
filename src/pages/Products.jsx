@@ -77,7 +77,7 @@ const Products = () => {
     return (
         <div className="bg-[#F8FAFC] min-h-screen">
             {/* Page Banner */}
-            <div className="relative h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+            <div className="relative h-[50vh] min-h-[500px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/img_reishi.jpg"
@@ -86,11 +86,11 @@ const Products = () => {
                     />
                     <div className="absolute inset-0 bg-slate-900/60" />
                 </div>
-                <div className="relative z-10 text-center max-w-4xl px-6">
-                    <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight drop-shadow-lg">
+                <div className="relative z-10 text-center max-w-4xl px-6 pt-20">
+                    <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter drop-shadow-2xl">
                         {t('products_page.title')}
                     </h1>
-                    <p className="text-lg text-emerald-50 max-w-2xl mx-auto font-medium leading-relaxed">
+                    <p className="text-xl md:text-2xl text-emerald-50 max-w-2xl mx-auto font-medium leading-relaxed opacity-90">
                         Advanced pharmacological formulations optimized through high-throughput screening and biochemical validation.
                     </p>
                 </div>

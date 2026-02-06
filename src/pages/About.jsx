@@ -9,7 +9,7 @@ const About = () => {
     return (
         <div className="bg-lab-gray min-h-screen">
             {/* Banner Section */}
-            <div className="relative h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden mb-20">
+            <div className="relative h-[50vh] min-h-[500px] flex items-center justify-center overflow-hidden mb-20">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=2000" // Lab image
@@ -18,15 +18,15 @@ const About = () => {
                     />
                     <div className="absolute inset-0 bg-slate-900/60" />
                 </div>
-                <div className="relative z-10 text-center px-6">
+                <div className="relative z-10 text-center px-6 pt-20">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight drop-shadow-lg">
+                        <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter drop-shadow-2xl">
                             {t('about_page.title')}
                         </h1>
-                        <p className="text-lg text-emerald-50 max-w-2xl mx-auto font-medium leading-relaxed">
+                        <p className="text-xl md:text-2xl text-emerald-50 max-w-2xl mx-auto font-medium leading-relaxed opacity-90">
                             Dedicated to bridging Traditional Chinese Medicine with modern biotechnology to create evidence-based anti-aging solutions.
                         </p>
                     </motion.div>
