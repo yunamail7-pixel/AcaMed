@@ -5,7 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
     en: {
         translation: {
-            nav: { home: "Home", about: "About Us", products: "Products", rd: "R&D", stories: "Stories", news: "News", contact: "Contact" },
+            nav: { home: "Home", about: "About Us", products: "Products", rd: "R&D", stories: "Amazon US", news: "News", contact: "Contact" },
             home: {
                 hero_tag: "Originating from National Yang-Ming University",
                 hero_title: "Precision Herbal Extraction",
@@ -80,7 +80,7 @@ const resources = {
     },
     zh: {
         translation: {
-            nav: { home: "首頁", about: "關於我們", products: "產品介紹", rd: "研發技術", stories: "品牌故事", news: "最新消息", contact: "聯繫我們" },
+            nav: { home: "首頁", about: "關於我們", products: "產品介紹", rd: "研發技術", stories: "美國 Amazon", news: "最新消息", contact: "聯繫我們" },
             home: {
                 hero_tag: "源自國立陽明大學",
                 hero_title: "精確草本萃取",
@@ -157,7 +157,7 @@ const resources = {
     },
     cn: {
         translation: {
-            nav: { home: "首页", about: "关于我们", products: "产品介绍", rd: "研发技术", stories: "品牌故事", news: "最新消息", contact: "联系我们" },
+            nav: { home: "首页", about: "关于我们", products: "产品介绍", rd: "研发技术", stories: "美国 Amazon", news: "最新消息", contact: "联系我们" },
             home: {
                 hero_tag: "源自国立阳明大学",
                 hero_title: "精确草本萃取",

@@ -44,7 +44,7 @@ const Footer = () => {
                         <li><NavLink to="/about" className="hover:text-white transition-colors">{t('nav.about')}</NavLink></li>
                         <li><NavLink to="/products" className="hover:text-white transition-colors">{t('nav.products')}</NavLink></li>
                         <li><NavLink to="/rd" className="hover:text-white transition-colors">{t('nav.rd')}</NavLink></li>
-                        <li><NavLink to="/stories" className="hover:text-white transition-colors">{t('nav.stories')}</NavLink></li>
+                        <li><a href="https://www.amazon.com/stores/page/914B4FB0-A22A-4794-A9D1-465DECA1B26E?ingress=3" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t('nav.stories')}</a></li>
                     </ul>
                 </div>
 

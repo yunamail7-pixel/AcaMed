@@ -21,7 +21,7 @@ const Navbar = () => {
         { name: t('nav.about'), href: '/about' },
         { name: t('nav.products'), href: '/products' },
         { name: t('nav.rd'), href: '/rd' },
-        { name: t('nav.stories'), href: '/stories' },
+        { name: t('nav.stories'), href: 'https://www.amazon.com/stores/page/914B4FB0-A22A-4794-A9D1-465DECA1B26E?ingress=3' },
     ];
 
     const changeLanguage = (lng) => {
@@ -61,21 +61,37 @@ const Navbar = () => {
                 {/* 桌面導航：更專業的排版 */}
                 <div className="hidden lg:flex items-center ml-auto pl-20 space-x-12">
                     <div className="flex items-center space-x-10">
-                        {navLinks.map((link) => (
-                            <NavLink key={link.href} to={link.href} className={linkClass}>
-                                {({ isActive }) => (
-                                    <div className="flex flex-col items-center">
+                        {navLinks.map((link) => {
+                            const isExternal = link.href.startsWith('http');
+                            if (isExternal) {
+                                return (
+                                    <a
+                                        key={link.href}
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="relative font-black text-xs tracking-[0.25em] uppercase transition-all duration-300 py-1 whitespace-nowrap text-slate-600 hover:text-primary"
+                                    >
                                         {link.name}
-                                        {isActive && (
-                                            <motion.div
-                                                layoutId="navDot"
-                                                className="w-1 h-1 bg-secondary rounded-full mt-1.5 shadow-[0_0_8px_rgba(14,165,233,0.8)]"
-                                            />
-                                        )}
-                                    </div>
-                                )}
-                            </NavLink>
-                        ))}
+                                    </a>
+                                );
+                            }
+                            return (
+                                <NavLink key={link.href} to={link.href} className={linkClass}>
+                                    {({ isActive }) => (
+                                        <div className="flex flex-col items-center">
+                                            {link.name}
+                                            {isActive && (
+                                                <motion.div
+                                                    layoutId="navDot"
+                                                    className="w-1 h-1 bg-secondary rounded-full mt-1.5 shadow-[0_0_8px_rgba(14,165,233,0.8)]"
+                                                />
+                                            )}
+                                        </div>
+                                    )}
+                                </NavLink>
+                            );
+                        })}
                     </div>
 
                     <div className="h-4 w-px bg-slate-200 mx-2" />
@@ -128,16 +144,33 @@ const Navbar = () => {
                                 <button onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-slate-50 rounded-xl"><X /></button>
                             </div>
                             <div className="flex-1 p-10 space-y-8 flex flex-col justify-center">
-                                {navLinks.map((link) => (
-                                    <NavLink
-                                        key={link.href}
-                                        to={link.href}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className={({ isActive }) => `text-5xl font-black tracking-tighter transition-all ${isActive ? 'text-secondary translate-x-4' : 'text-slate-300 hover:text-slate-900'}`}
-                                    >
-                                        {link.name}
-                                    </NavLink>
-                                ))}
+                                {navLinks.map((link) => {
+                                    const isExternal = link.href.startsWith('http');
+                                    if (isExternal) {
+                                        return (
+                                            <a
+                                                key={link.href}
+                                                href={link.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                className="text-5xl font-black tracking-tighter transition-all text-slate-300 hover:text-slate-900"
+                                            >
+                                                {link.name}
+                                            </a>
+                                        );
+                                    }
+                                    return (
+                                        <NavLink
+                                            key={link.href}
+                                            to={link.href}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className={({ isActive }) => `text-5xl font-black tracking-tighter transition-all ${isActive ? 'text-secondary translate-x-4' : 'text-slate-300 hover:text-slate-900'}`}
+                                        >
+                                            {link.name}
+                                        </NavLink>
+                                    );
+                                })}
                             </div>
                             <div className="p-10 border-t border-slate-100 space-y-6">
                                 <NavLink to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block bg-secondary text-white py-6 rounded-2xl text-center font-black uppercase tracking-widest text-xs">
