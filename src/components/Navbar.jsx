@@ -31,7 +31,7 @@ const Navbar = () => {
     const isLightPage = location.pathname !== '/';
 
     const linkClass = ({ isActive }) =>
-        `relative font-bold text-sm tracking-wider uppercase transition-all duration-300 py-2 whitespace-nowrap ${isActive
+        `relative font-bold text-base tracking-tight uppercase transition-all duration-300 py-2 whitespace-nowrap ${isActive
             ? 'text-primary'
             : 'text-slate-600 hover:text-primary'
         }`;
@@ -70,7 +70,7 @@ const Navbar = () => {
                                         href={link.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="relative font-bold text-sm tracking-wider uppercase transition-all duration-300 py-2 whitespace-nowrap text-slate-600 hover:text-primary"
+                                        className="relative font-bold text-base tracking-tight uppercase transition-all duration-300 py-2 whitespace-nowrap text-slate-600 hover:text-primary"
                                     >
                                         {link.name}
                                     </a>
@@ -102,7 +102,7 @@ const Navbar = () => {
                             <button
                                 key={lng}
                                 onClick={() => changeLanguage(lng)}
-                                className={`text-[13px] font-bold w-10 h-10 rounded-lg transition-all ${i18n.language.startsWith(lng)
+                                className={`text-sm font-bold w-10 h-10 rounded-lg transition-all ${i18n.language.startsWith(lng)
                                     ? 'bg-secondary text-white shadow-md'
                                     : 'text-slate-500 hover:text-secondary hover:bg-white'
                                     }`}
@@ -114,7 +114,7 @@ const Navbar = () => {
 
                     <NavLink
                         to="/contact"
-                        className="whitespace-nowrap px-8 py-4 rounded-2xl font-black text-sm tracking-wider uppercase transition-all shadow-xl hover:translate-y-[-3px] active:translate-y-0 active:shadow-inner bg-secondary text-white hover:bg-primary hover:shadow-secondary/20"
+                        className="whitespace-nowrap px-8 py-4 rounded-2xl font-black text-base tracking-tight uppercase transition-all shadow-xl hover:translate-y-[-3px] active:translate-y-0 active:shadow-inner bg-secondary text-white hover:bg-primary hover:shadow-secondary/20"
                     >
                         {t('nav.contact')}
                     </NavLink>
