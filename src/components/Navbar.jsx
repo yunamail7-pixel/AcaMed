@@ -31,7 +31,7 @@ const Navbar = () => {
     const isLightPage = location.pathname !== '/';
 
     const linkClass = ({ isActive }) =>
-        `relative font-black text-[10px] tracking-[0.25em] uppercase transition-all duration-300 py-1 ${isActive
+        `relative font-black text-xs tracking-[0.25em] uppercase transition-all duration-300 py-1 ${isActive
             ? 'text-secondary'
             : 'text-slate-600 hover:text-primary'
         }`;
@@ -53,7 +53,7 @@ const Navbar = () => {
                         </span>
                         <div className="flex items-center space-x-2 mt-1.5">
                             <span className="w-4 h-[1px] bg-secondary opacity-50" />
-                            <span className="text-[9px] font-bold tracking-[0.3em] uppercase opacity-40 text-slate-900">Precision Extraction</span>
+                            <span className="text-[11px] font-bold tracking-[0.3em] uppercase opacity-40 text-slate-900">Precision Extraction</span>
                         </div>
                     </div>
                 </NavLink>
@@ -86,7 +86,7 @@ const Navbar = () => {
                             <button
                                 key={lng}
                                 onClick={() => changeLanguage(lng)}
-                                className={`text-[10px] font-black w-8 h-8 rounded-md transition-all ${i18n.language.startsWith(lng)
+                                className={`text-xs font-black w-8 h-8 rounded-md transition-all ${i18n.language.startsWith(lng)
                                     ? 'bg-slate-900 text-white shadow-md'
                                     : 'text-slate-500 hover:text-slate-900 hover:bg-white'
                                     }`}
@@ -98,7 +98,7 @@ const Navbar = () => {
 
                     <NavLink
                         to="/contact"
-                        className="px-10 py-4 rounded-xl font-black text-[10px] tracking-[0.2em] uppercase transition-all shadow-xl hover:translate-y-[-2px] active:translate-y-0 active:shadow-inner bg-slate-900 text-white hover:bg-primary"
+                        className="px-8 py-3 rounded-xl font-black text-xs tracking-[0.2em] uppercase transition-all shadow-xl hover:translate-y-[-2px] active:translate-y-0 active:shadow-inner bg-slate-900 text-white hover:bg-primary"
                     >
                         {t('nav.contact')}
                     </NavLink>
@@ -148,7 +148,7 @@ const Navbar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </nav>
+        </nav >
     );
 };
 

@@ -53,11 +53,11 @@ h6 {
 
 /* 按鈕：科研藍與草本綠的結合，更有工業精度感 */
 .btn-primary {
-  @apply bg-primary-dark hover:bg-primary text-white font-black uppercase tracking-[0.2em] text-[10px] py-5 px-10 rounded-xl transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-2xl hover:shadow-primary/20 active:scale-95 active:translate-y-0;
+  @apply bg-primary-dark hover:bg-primary text-white font-black uppercase tracking-[0.2em] text-xs py-5 px-10 rounded-xl transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-2xl hover:shadow-primary/20 active:scale-95 active:translate-y-0;
 }
 
 .btn-lab {
-  @apply border border-slate-300 text-slate-600 bg-white/50 hover:bg-white hover:text-primary font-black uppercase tracking-[0.2em] text-[10px] py-5 px-10 rounded-xl transition-all duration-500 backdrop-blur-sm;
+  @apply border border-slate-300 text-slate-600 bg-white/50 hover:bg-white hover:text-primary font-black uppercase tracking-[0.2em] text-xs py-5 px-10 rounded-xl transition-all duration-500 backdrop-blur-sm;
 }
 
 /* 捲動條：醫療淺灰 */

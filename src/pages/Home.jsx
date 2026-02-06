@@ -17,18 +17,18 @@ const Home = () => {
             desc: t('home.hero_desc'),
         },
         {
-            image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=2000", // 實驗室玻璃器皿與數據感 (已修正連結)
-            tag: "Scientific Validation",
-            title: "Multi-Targeted",
-            subtitle: "Precision Herbalism",
-            desc: "Bridging 2000 years of TCM wisdom with modern high-throughput screening and multi-targeted pharmacological analysis.",
+            image: "/img_reishi.jpg",
+            tag: t('home.slide2_tag'),
+            title: t('home.slide2_title'),
+            subtitle: t('home.slide2_subtitle'),
+            desc: t('home.slide2_desc'),
         },
         {
-            image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=2000", // 現代化顯微鏡與分析
-            tag: "Quality Control",
-            title: "Fingerprint Tech",
-            subtitle: "Chemical Consistency",
-            desc: "Leveraging electronic databases of 700+ medical books to ensure raw material purity via advanced chemical fingerprinting.",
+            image: "/img_lab.jpg",
+            tag: t('home.slide3_tag'),
+            title: t('home.slide3_title'),
+            subtitle: t('home.slide3_subtitle'),
+            desc: t('home.slide3_desc'),
         }
     ];
 
@@ -58,10 +58,10 @@ const Home = () => {
                         <img
                             src={slides[currentSlide].image}
                             alt="Background"
-                            className="w-full h-full object-cover opacity-80" // 微調圖片本身透明度
+                            className="w-full h-full object-cover" // 移除 opacity-80 以增加亮度
                         />
                         {/* 降低漸層覆蓋濃度，讓圖片細節展現出來 */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/40 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-900/10 to-transparent" />
                     </motion.div>
                 </AnimatePresence>
 
@@ -88,7 +88,7 @@ const Home = () => {
                         >
                             <div className="inline-flex items-center space-x-3 mb-10">
                                 <span className="h-px w-8 bg-secondary" />
-                                <span className="text-[11px] font-mono font-bold text-secondary tracking-[0.3em] uppercase">
+                                <span className="text-xs font-mono font-bold text-secondary tracking-[0.3em] uppercase">
                                     {slides[currentSlide].tag}
                                 </span>
                             </div>
@@ -104,7 +104,7 @@ const Home = () => {
                                     <span>{t('home.cta_products')}</span>
                                     <ChevronRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
                                 </NavLink>
-                                <NavLink to="/about" className="flex items-center justify-center space-x-3 px-10 py-5 rounded-xl border border-white/20 text-white hover:bg-white/5 transition-all font-black uppercase tracking-widest text-[10px] backdrop-blur-sm">
+                                <NavLink to="/about" className="flex items-center justify-center space-x-3 px-10 py-5 rounded-xl border border-white/20 text-white hover:bg-white/5 transition-all font-black uppercase tracking-widest text-xs backdrop-blur-sm">
                                     <span>{t('home.cta_more')}</span>
                                     <Database size={16} className="text-secondary" />
                                 </NavLink>
@@ -122,7 +122,7 @@ const Home = () => {
                                 onClick={() => setCurrentSlide(i)}
                                 className="group flex items-center space-x-4"
                             >
-                                <span className={`text-[10px] font-mono transition-colors ${currentSlide === i ? 'text-secondary' : 'text-slate-500'}`}>0{i + 1}</span>
+                                <span className={`text-xs font-mono transition-colors ${currentSlide === i ? 'text-secondary' : 'text-slate-500'}`}>0{i + 1}</span>
                                 <div className={`h-1 rounded-full transition-all duration-700 ${currentSlide === i ? 'w-12 bg-secondary' : 'w-4 bg-slate-700 group-hover:bg-slate-500'}`} />
                             </button>
                         ))}
@@ -140,7 +140,7 @@ const Home = () => {
                         { label: "Medical Books", value: "700", unit: "+", sub: "Digitized TCAM knowledge" },
                     ].map((stat, i) => (
                         <div key={i} className="space-y-4">
-                            <p className="text-[10px] font-black text-secondary tracking-widest uppercase">{stat.label}</p>
+                            <p className="text-xs font-black text-secondary tracking-widest uppercase">{stat.label}</p>
                             <div className="flex items-baseline space-x-1">
                                 <span className="stat-value text-slate-900">{stat.value}</span>
                                 <span className="text-secondary font-bold">{stat.unit}</span>
@@ -196,7 +196,7 @@ const Home = () => {
                                 <p className="text-slate-900 font-bold italic leading-relaxed">
                                     "Innovation is the bridge connecting the roots of the past with the health of the future."
                                 </p>
-                                <p className="mt-4 text-[10px] font-black uppercase tracking-widest text-secondary">— Professor Wu</p>
+                                <p className="mt-4 text-xs font-black uppercase tracking-widest text-secondary">— Professor Wu</p>
                             </div>
                         </div>
                     </div>
