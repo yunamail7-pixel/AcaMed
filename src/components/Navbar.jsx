@@ -21,7 +21,7 @@ const Navbar = () => {
         { name: t('nav.about'), href: '/about' },
         { name: t('nav.products'), href: '/products' },
         { name: t('nav.rd'), href: '/rd' },
-        { name: t('nav.stories'), href: 'https://www.amazon.com/stores/page/914B4FB0-A22A-4794-A9D1-465DECA1B26E?ingress=3' },
+        { name: t('nav.stories'), href: 'https://www.amazon.com/stores/AcaMed/page/914B4FB0-A22A-4794-A9D1-465DECA1B26E' },
     ];
 
     const changeLanguage = (lng) => {
