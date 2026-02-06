@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', 'Noto Sans TC', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 背景改為科研質感的淺灰，並加入細微網格紋理 */
+  @apply bg-[#F8FAFC] text-slate-800 overflow-x-hidden;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(20, 184, 166, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.03) 0px, transparent 50%);
+}
+
+#root {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+  @apply font-black tracking-tighter;
+}
+
+/* 科研風格的玻璃擬態：更高冷、線條更精細 */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.03);
+}
+
+.lab-border {
+  @apply border-b border-slate-200/60;
+}
+
+.section-padding {
+  @apply py-32 md:py-48 px-8 max-w-7xl mx-auto;
+}
+
+/* 按鈕：科研藍與草本綠的結合，更有工業精度感 */
+.btn-primary {
+  @apply bg-primary-dark hover:bg-primary text-white font-black uppercase tracking-[0.2em] text-[10px] py-5 px-10 rounded-xl transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-2xl hover:shadow-primary/20 active:scale-95 active:translate-y-0;
+}
+
+.btn-lab {
+  @apply border border-slate-300 text-slate-600 bg-white/50 hover:bg-white hover:text-primary font-black uppercase tracking-[0.2em] text-[10px] py-5 px-10 rounded-xl transition-all duration-500 backdrop-blur-sm;
+}
+
+/* 捲動條：醫療淺灰 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0EA5E9;
+}
+
+/* 自定義選中色 */
+::selection {
+  @apply bg-secondary text-white;
+}
+
+/* 數據儀表盤感的數字樣式 */
+.stat-value {
+  @apply font-mono text-4xl font-bold tracking-tighter;
+}
