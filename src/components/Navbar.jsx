@@ -31,36 +31,36 @@ const Navbar = () => {
     const isLightPage = location.pathname !== '/';
 
     const linkClass = ({ isActive }) =>
-        `relative font-black text-xs tracking-[0.25em] uppercase transition-all duration-300 py-1 whitespace-nowrap ${isActive
-            ? 'text-secondary'
+        `relative font-bold text-sm tracking-wider uppercase transition-all duration-300 py-2 whitespace-nowrap ${isActive
+            ? 'text-primary'
             : 'text-slate-600 hover:text-primary'
         }`;
 
     return (
-        <nav className="fixed w-full z-50 bg-white border-b border-slate-200/50 py-4 shadow-sm">
+        <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/60 py-5 shadow-sm">
             <div className="max-w-7xl mx-auto px-6 md:px-10 flex justify-between items-center">
                 {/* Logo Section：更有生技公司質感 */}
                 <NavLink to="/" className="flex items-center group">
                     <div className="relative">
-                        <div className="w-12 h-12 bg-secondary flex items-center justify-center rounded-xl text-white font-black text-2xl shadow-2xl group-hover:bg-primary transition-colors duration-500">
+                        <div className="w-14 h-14 bg-secondary flex items-center justify-center rounded-2xl text-white font-black text-3xl shadow-lg group-hover:bg-primary transition-all duration-500 transform group-hover:scale-105">
                             A
                         </div>
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full border-2 border-white shadow-[0_0_10px_rgba(14,165,233,0.5)]" />
+                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-white shadow-[0_0_15px_rgba(101,163,13,0.5)]" />
                     </div>
-                    <div className="ml-5 flex flex-col justify-center">
-                        <span className="text-2xl font-black tracking-tight leading-none transition-colors text-slate-900 whitespace-nowrap flex items-center gap-2">
-                            AcaMed <span className="text-secondary italic font-light">Pharma</span>
+                    <div className="ml-6 flex flex-col justify-center">
+                        <span className="text-3xl font-black tracking-tighter leading-none transition-colors text-slate-900 whitespace-nowrap flex items-center gap-2">
+                            AcaMed <span className="text-secondary italic font-medium">Pharma</span>
                         </span>
-                        <div className="flex items-center space-x-2 mt-1.5">
-                            <span className="w-4 h-[1px] bg-secondary opacity-50" />
-                            <span className="text-[11px] font-bold tracking-[0.3em] uppercase opacity-40 text-slate-900 whitespace-nowrap">Precision Extraction</span>
+                        <div className="flex items-center space-x-3 mt-2">
+                            <span className="w-6 h-[1.5px] bg-secondary opacity-60" />
+                            <span className="text-xs font-bold tracking-[0.2em] uppercase opacity-50 text-slate-800 whitespace-nowrap">Precision Extraction</span>
                         </div>
                     </div>
                 </NavLink>
 
                 {/* 桌面導航：更專業的排版 */}
-                <div className="hidden lg:flex items-center ml-auto pl-20 space-x-12">
-                    <div className="flex items-center space-x-10">
+                <div className="hidden lg:flex items-center ml-auto pl-16 space-x-10">
+                    <div className="flex items-center space-x-12">
                         {navLinks.map((link) => {
                             const isExternal = link.href.startsWith('http');
                             if (isExternal) {
@@ -70,7 +70,7 @@ const Navbar = () => {
                                         href={link.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="relative font-black text-xs tracking-[0.25em] uppercase transition-all duration-300 py-1 whitespace-nowrap text-slate-600 hover:text-primary"
+                                        className="relative font-bold text-sm tracking-wider uppercase transition-all duration-300 py-2 whitespace-nowrap text-slate-600 hover:text-primary"
                                     >
                                         {link.name}
                                     </a>
@@ -84,7 +84,7 @@ const Navbar = () => {
                                             {isActive && (
                                                 <motion.div
                                                     layoutId="navDot"
-                                                    className="w-1 h-1 bg-secondary rounded-full mt-1.5 shadow-[0_0_8px_rgba(14,165,233,0.8)]"
+                                                    className="absolute -bottom-1 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_10px_rgba(6,78,59,0.4)]"
                                                 />
                                             )}
                                         </div>
@@ -94,15 +94,15 @@ const Navbar = () => {
                         })}
                     </div>
 
-                    <div className="h-4 w-px bg-slate-200 mx-2" />
+                    <div className="h-6 w-px bg-slate-200 mx-4" />
 
                     {/* 語系切換：科研參數感 */}
-                    <div className="flex items-center space-x-1 bg-slate-100 p-1 rounded-lg border border-slate-200">
+                    <div className="flex items-center space-x-1 bg-slate-50 p-1.5 rounded-xl border border-slate-200/60 font-medium">
                         {['en', 'zh', 'cn'].map((lng) => (
                             <button
                                 key={lng}
                                 onClick={() => changeLanguage(lng)}
-                                className={`text-xs font-black w-8 h-8 rounded-md transition-all ${i18n.language.startsWith(lng)
+                                className={`text-[13px] font-bold w-10 h-10 rounded-lg transition-all ${i18n.language.startsWith(lng)
                                     ? 'bg-secondary text-white shadow-md'
                                     : 'text-slate-500 hover:text-secondary hover:bg-white'
                                     }`}
@@ -114,7 +114,7 @@ const Navbar = () => {
 
                     <NavLink
                         to="/contact"
-                        className="px-8 py-3 rounded-xl font-black text-xs tracking-[0.2em] uppercase transition-all shadow-xl hover:translate-y-[-2px] active:translate-y-0 active:shadow-inner bg-secondary text-white hover:bg-primary"
+                        className="px-10 py-4 rounded-2xl font-black text-sm tracking-widest uppercase transition-all shadow-xl hover:translate-y-[-3px] active:translate-y-0 active:shadow-inner bg-secondary text-white hover:bg-primary hover:shadow-secondary/20"
                     >
                         {t('nav.contact')}
                     </NavLink>
