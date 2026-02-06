@@ -173,7 +173,11 @@ const Navbar = () => {
                                 })}
                             </div>
                             <div className="p-10 border-t border-slate-100 space-y-6">
-                                <NavLink to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block bg-secondary text-white py-6 rounded-2xl text-center font-black uppercase tracking-widest text-xs">
+                                <NavLink
+                                    to="/contact"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="block bg-secondary text-white py-6 rounded-2xl text-center font-black uppercase tracking-widest text-sm shadow-lg active:scale-95 transition-transform"
+                                >
                                     {t('nav.contact')}
                                 </NavLink>
                             </div>
