@@ -42,7 +42,7 @@ const Navbar = () => {
                 {/* Logo Section：更有生技公司質感 */}
                 <NavLink to="/" className="flex items-center group">
                     <img
-                        src="/logo.jpg"
+                        src="/logo.png"
                         alt="AcaMed Logo"
                         className="h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
                     />

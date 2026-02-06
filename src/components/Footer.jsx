@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className="col-span-1 md:col-span-1">
                     <div className="flex items-center space-x-4 mb-10">
                         <img
-                            src="/logo.jpg"
+                            src="/logo.png"
                             alt="AcaMed Logo"
                             className="h-16 w-auto object-contain brightness-0 invert"
                         />
