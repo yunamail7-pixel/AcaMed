@@ -65,7 +65,7 @@ const Contact = () => (
 function App() {
     return (
         <ErrorBoundary>
-            <Router>
+            <Router basename="/AcaMed">
                 <Routes>
                     <Route path="/" element={<Layout><Home /></Layout>} />
                     <Route path="/about" element={<Layout><About /></Layout>} />
