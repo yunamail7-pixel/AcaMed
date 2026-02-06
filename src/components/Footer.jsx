@@ -14,10 +14,11 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-4 gap-20 mb-32 relative z-10">
                 <div className="col-span-1 md:col-span-1">
                     <div className="flex items-center space-x-4 mb-10">
-                        <div className="w-12 h-12 bg-white flex items-center justify-center rounded-xl text-slate-900 font-black text-2xl shadow-2xl">A</div>
-                        <span className="text-3xl font-black tracking-tighter">
-                            AcaMed <span className="text-secondary italic font-light">Pharma</span>
-                        </span>
+                        <img
+                            src="/logo.jpg"
+                            alt="AcaMed Logo"
+                            className="h-16 w-auto object-contain brightness-0 invert"
+                        />
                     </div>
                     <p className="text-slate-400 text-sm leading-relaxed mb-10 font-medium opacity-80 max-w-xs">
                         {t('footer.desc')}

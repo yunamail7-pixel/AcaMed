@@ -41,21 +41,11 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-6 md:px-10 flex justify-between items-center">
                 {/* Logo Section：更有生技公司質感 */}
                 <NavLink to="/" className="flex items-center group">
-                    <div className="relative">
-                        <div className="w-14 h-14 bg-secondary flex items-center justify-center rounded-2xl text-white font-black text-3xl shadow-lg group-hover:bg-primary transition-all duration-500 transform group-hover:scale-105">
-                            A
-                        </div>
-                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-white shadow-[0_0_15px_rgba(101,163,13,0.5)]" />
-                    </div>
-                    <div className="ml-6 flex flex-col justify-center">
-                        <span className="text-3xl font-black tracking-tighter leading-none transition-colors text-slate-900 whitespace-nowrap flex items-center gap-2">
-                            AcaMed <span className="text-secondary italic font-medium">Pharma</span>
-                        </span>
-                        <div className="flex items-center space-x-3 mt-2">
-                            <span className="w-6 h-[1.5px] bg-secondary opacity-60" />
-                            <span className="text-xs font-bold tracking-[0.2em] uppercase opacity-50 text-slate-800 whitespace-nowrap">Precision Extraction</span>
-                        </div>
-                    </div>
+                    <img
+                        src="/logo.jpg"
+                        alt="AcaMed Logo"
+                        className="h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
                 </NavLink>
 
                 {/* 桌面導航：更專業的排版 */}
