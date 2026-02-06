@@ -114,7 +114,7 @@ const Navbar = () => {
 
                     <NavLink
                         to="/contact"
-                        className="px-10 py-4 rounded-2xl font-black text-sm tracking-widest uppercase transition-all shadow-xl hover:translate-y-[-3px] active:translate-y-0 active:shadow-inner bg-secondary text-white hover:bg-primary hover:shadow-secondary/20"
+                        className="whitespace-nowrap px-8 py-4 rounded-2xl font-black text-sm tracking-wider uppercase transition-all shadow-xl hover:translate-y-[-3px] active:translate-y-0 active:shadow-inner bg-secondary text-white hover:bg-primary hover:shadow-secondary/20"
                     >
                         {t('nav.contact')}
                     </NavLink>
