@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Globe, Cpu, Database, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
     const { t, i18n } = useTranslation();
@@ -42,7 +43,7 @@ const Navbar = () => {
                 {/* Logo Section：更有生技公司質感 */}
                 <NavLink to="/" className="flex items-center group">
                     <img
-                        src="/logo.png"
+                        src={logo}
                         alt="AcaMed Logo"
                         className={`w-auto object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-lg ${isScrolled ? 'h-8 lg:h-14' : 'h-10 lg:h-20'}`}
                     />

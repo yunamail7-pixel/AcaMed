@@ -14,6 +14,7 @@ import {
     X
 } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
+import imgReishi from '../assets/img_reishi.jpg';
 
 const Products = () => {
     const { t } = useTranslation();

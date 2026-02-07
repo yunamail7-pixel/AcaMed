@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Globe, ExternalLink, Mail, MapPin, Instagram, Facebook, ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import ScrollReveal from './ScrollReveal';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
     const { t } = useTranslation();
@@ -18,7 +19,7 @@ const Footer = () => {
                     <ScrollReveal>
                         <div className="flex items-center space-x-4 mb-10">
                             <img
-                                src="/logo.png"
+                                src={logo}
                                 alt="AcaMed Logo"
                                 className="h-16 w-auto object-contain brightness-0 invert hover:opacity-80 transition-opacity duration-300"
                             />

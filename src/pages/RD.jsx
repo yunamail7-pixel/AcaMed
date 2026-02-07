@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 
 import ScrollReveal from '../components/ScrollReveal';
+import rdBanner from '../assets/rd_banner.png';
 
 const RD = () => {
     const { t } = useTranslation();
@@ -28,7 +29,7 @@ const RD = () => {
                         className="absolute inset-0 z-0"
                     >
                         <img
-                            src="/rd_banner.png"
+                            src={rdBanner}
                             alt="R&D Banner"
                             className="w-full h-full object-cover"
                         />
