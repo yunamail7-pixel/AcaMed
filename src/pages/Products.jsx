@@ -16,6 +16,14 @@ import {
 import ScrollReveal from '../components/ScrollReveal';
 import imgReishi from '../assets/img_reishi.jpg';
 
+// 導入產品圖片
+import prodSmart from '../assets/products/smart.jpg';
+import prodBright from '../assets/products/bright.jpg';
+import prodSport from '../assets/products/sport.jpg';
+import prodReishiSparkling from '../assets/products/reishi_sparkling.jpg';
+import prodCosmetic from '../assets/products/cosmetic.jpg';
+import prodMask from '../assets/products/mask.jpg';
+
 const Products = () => {
     const { t } = useTranslation();
 
@@ -30,25 +38,25 @@ const Products = () => {
                     id: 'smart',
                     title: t('products_page.smart_h'),
                     p: t('products_page.smart_p'),
-                    img: 'https://www.acamedshop.com.tw/image_good.php?id=22021&s=m' // 益智寧官方圖
+                    img: prodSmart
                 },
                 {
                     id: 'bright',
                     title: t('products_page.bright_h'),
                     p: t('products_page.bright_p'),
-                    img: 'https://www.acamedshop.com.tw/image_good.php?id=22169&s=m' // 益視寧官方圖
+                    img: prodBright
                 },
                 {
                     id: 'sport',
                     title: t('products_page.sport_h'),
                     p: t('products_page.sport_p'),
-                    img: 'https://www.acamedshop.com.tw/image_good.php?id=22038&s=m' // 益心寧官方圖
+                    img: prodSport
                 },
                 {
                     id: 'reishi-sparkling',
                     title: t('products_page.reishi_sparkling_h'),
                     p: t('products_page.reishi_sparkling_p'),
-                    img: 'https://www.acamedshop.com.tw/image_good.php?id=25132&s=m' // 鳳凰靈芝氣泡水官方圖
+                    img: prodReishiSparkling
                 }
             ]
         },
@@ -62,17 +70,18 @@ const Products = () => {
                     id: 'cosmetic',
                     title: t('products_page.cosmetic_h'),
                     p: t('products_page.cosmetic_p'),
-                    img: 'https://www.acamedshop.com.tw/image_good.php?id=22196&s=m' // 蘭嵐精華液官方圖
+                    img: prodCosmetic
                 },
                 {
                     id: 'mask',
                     title: t('products_page.mask_h'),
                     p: t('products_page.mask_p'),
-                    img: 'https://www.acamedshop.com.tw/image_good.php?id=22023&s=m' // 蘭嵐面膜官方圖
+                    img: prodMask
                 }
             ]
         }
     ];
+
 
     const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -88,7 +97,7 @@ const Products = () => {
                         className="absolute inset-0 z-0"
                     >
                         <img
-                            src="/img_reishi.jpg"
+                            src={imgReishi}
                             alt="Products Banner"
                             className="w-full h-full object-cover"
                         />

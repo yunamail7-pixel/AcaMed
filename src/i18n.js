@@ -47,8 +47,11 @@ const resources = {
                 sport_h: "SporT-101 (Cardio/Vitality)",
                 sport_p: "Published in 'British Journal of Pharmacology' (2013). Enhances mitochondrial biosynthesis for better energy and oxygen utilization.",
                 cosmetic_h: "Dermatology & Cosmetics",
-                cosmetic_p: "Our Lan-I/Lan-II series and OF-II Orchid Essence provide advanced anti-aging protection for your skin."
+                cosmetic_p: "Our Lan-I/Lan-II series and OF-II Orchid Essence provide advanced anti-aging protection for your skin.",
+                mask_h: "OF II Orchid Reishi Herbal Essence Mask",
+                mask_p: "A premium herbal mask for anti-aging, firming, and skin brightening. Infused with Ganoderma lucidum extracts to revitalize skin vitality."
             },
+
             rd_page: {
                 title: "R&D Excellence",
                 tech_h: "Cold Extraction Technology",
