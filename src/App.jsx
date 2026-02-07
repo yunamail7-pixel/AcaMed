@@ -1,14 +1,19 @@
-import React, { Suspense } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Products from './pages/Products';
-import RD from './pages/RD';
-import Stories from './pages/Stories';
+import PageTransition from './components/PageTransition';
+import Loading from './components/Loading';
 
-// 錯誤邊界組件，用於捕捉 React 渲染錯誤並防止白屏
+// Lazy load pages for performance
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Products = lazy(() => import('./pages/Products'));
+const RD = lazy(() => import('./pages/RD'));
+const Stories = lazy(() => import('./pages/Stories'));
+
+// 錯誤邊界組件
 class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
@@ -36,9 +41,9 @@ class ErrorBoundary extends React.Component {
 // 通用頁面佈局組件
 const Layout = ({ children }) => {
     return (
-        <div className="min-h-screen font-body selection:bg-primary selection:text-white bg-nature-cream">
+        <div className="min-h-screen font-body selection:bg-primary selection:text-white bg-nature-cream flex flex-col">
             <Navbar />
-            <main className="min-h-[70vh]">
+            <main className="flex-grow">
                 {children}
             </main>
             <Footer />
@@ -46,35 +51,70 @@ const Layout = ({ children }) => {
     );
 }
 
-// 最新消息頁面佔位組件
-const News = () => (
-    <div className="pt-32 pb-24 text-center">
-        <h1 className="text-4xl font-bold mb-12">Latest News</h1>
-        <p className="text-gray-500">Updates coming soon.</p>
-    </div>
-);
+// Animated Routes Component to use useLocation hook
+const AnimatedRoutes = () => {
+    const location = useLocation();
 
-// 聯繫我們頁面佔位組件
-const Contact = () => (
-    <div className="pt-32 pb-24 text-center">
-        <h1 className="text-4xl font-bold mb-12">Contact Us</h1>
-        <p className="text-gray-500">service@acamed.com.tw</p>
-    </div>
-);
+    return (
+        <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+                <Route path="/" element={
+                    <Layout>
+                        <PageTransition>
+                            <Home />
+                        </PageTransition>
+                    </Layout>
+                } />
+                <Route path="/about" element={
+                    <Layout>
+                        <PageTransition>
+                            <About />
+                        </PageTransition>
+                    </Layout>
+                } />
+                <Route path="/products" element={
+                    <Layout>
+                        <PageTransition>
+                            <Products />
+                        </PageTransition>
+                    </Layout>
+                } />
+                <Route path="/rd" element={
+                    <Layout>
+                        <PageTransition>
+                            <RD />
+                        </PageTransition>
+                    </Layout>
+                } />
+                <Route path="/stories" element={
+                    <Layout>
+                        <PageTransition>
+                            <Stories />
+                        </PageTransition>
+                    </Layout>
+                } />
+                <Route path="/contact" element={
+                    <Layout>
+                        <PageTransition>
+                            <div className="pt-32 pb-24 text-center">
+                                <h1 className="text-4xl font-bold mb-12">Contact Us</h1>
+                                <p className="text-gray-500">service@acamed.com.tw</p>
+                            </div>
+                        </PageTransition>
+                    </Layout>
+                } />
+            </Routes>
+        </AnimatePresence>
+    );
+};
 
 function App() {
     return (
         <ErrorBoundary>
             <Router>
-                <Routes>
-                    <Route path="/" element={<Layout><Home /></Layout>} />
-                    <Route path="/about" element={<Layout><About /></Layout>} />
-                    <Route path="/products" element={<Layout><Products /></Layout>} />
-                    <Route path="/rd" element={<Layout><RD /></Layout>} />
-                    <Route path="/stories" element={<Layout><Stories /></Layout>} />
-                    <Route path="/news" element={<Layout><News /></Layout>} />
-                    <Route path="/contact" element={<Layout><Contact /></Layout>} />
-                </Routes>
+                <Suspense fallback={<Loading />}>
+                    <AnimatedRoutes />
+                </Suspense>
             </Router>
         </ErrorBoundary>
     );

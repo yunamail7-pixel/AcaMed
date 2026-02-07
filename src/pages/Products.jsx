@@ -13,6 +13,7 @@ import {
     Globe,
     X
 } from 'lucide-react';
+import ScrollReveal from '../components/ScrollReveal';
 
 const Products = () => {
     const { t } = useTranslation();
@@ -78,81 +79,91 @@ const Products = () => {
         <div className="bg-[#F8FAFC] min-h-screen">
             {/* Page Banner */}
             <div className="relative h-[50vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/img_reishi.jpg"
-                        alt="Products Banner"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-slate-900/60" />
-                </div>
+                <AnimatePresence>
+                    <motion.div
+                        initial={{ scale: 1.1 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        className="absolute inset-0 z-0"
+                    >
+                        <img
+                            src="/img_reishi.jpg"
+                            alt="Products Banner"
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-slate-900/60" />
+                    </motion.div>
+                </AnimatePresence>
+
                 <div className="relative z-10 text-center max-w-4xl px-6 pt-20">
-                    <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter drop-shadow-2xl">
-                        {t('products_page.title')}
-                    </h1>
-                    <p className="text-xl md:text-2xl text-emerald-50 max-w-2xl mx-auto font-medium leading-relaxed opacity-90">
-                        Advanced pharmacological formulations optimized through high-throughput screening and biochemical validation.
-                    </p>
+                    <ScrollReveal>
+                        <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter drop-shadow-2xl">
+                            {t('products_page.title')}
+                        </h1>
+                        <p className="text-xl md:text-2xl text-emerald-50 max-w-2xl mx-auto font-medium leading-relaxed opacity-90">
+                            Advanced pharmacological formulations optimized through high-throughput screening and biochemical validation.
+                        </p>
+                    </ScrollReveal>
                 </div>
             </div>
 
             <section className="max-w-7xl mx-auto px-6 md:px-10 py-20">
-
-
                 <div className="space-y-24">
                     {categories.map((cat) => (
                         <div key={cat.id}>
                             {/* Category Header 縮小 */}
-                            <div className="border-b border-slate-200 pb-4 mb-10 flex flex-col md:flex-row md:items-baseline md:gap-4">
-                                <h2 className="text-2xl font-bold text-slate-900">
-                                    {cat.title}
-                                </h2>
-                                <span className="text-sm text-slate-500 font-medium">{cat.subtitle}</span>
-                            </div>
+                            <ScrollReveal>
+                                <div className="border-b border-slate-200 pb-4 mb-10 flex flex-col md:flex-row md:items-baseline md:gap-4">
+                                    <h2 className="text-2xl font-bold text-slate-900">
+                                        {cat.title}
+                                    </h2>
+                                    <span className="text-sm text-slate-500 font-medium">{cat.subtitle}</span>
+                                </div>
+                            </ScrollReveal>
 
                             {/* Products Grid - 改為標準網格 */}
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                                {cat.products.map((prod) => (
-                                    <motion.div
-                                        key={prod.id}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.5 }}
-                                        className="group flex flex-col h-full cursor-pointer"
-                                        onClick={() => setSelectedProduct(prod)}
-                                    >
-                                        {/* 圖片區域縮小並標準化 */}
-                                        <div className="relative overflow-hidden rounded-xl bg-white shadow-sm border border-slate-100 aspect-[4/3] mb-6">
-                                            <img
-                                                src={prod.img}
-                                                alt={prod.title}
-                                                className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700 ease-out"
-                                            />
-                                        </div>
-
-                                        {/* 內容區域縮小 */}
-                                        <div className="flex-1 flex flex-col">
-                                            <h3 className="text-lg font-bold text-slate-900 mb-2 leading-tight group-hover:text-primary transition-colors">
-                                                {prod.title}
-                                            </h3>
-                                            <p className="text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3">
-                                                {prod.p}
-                                            </p>
-
-                                            <div className="mt-auto pt-4 border-t border-slate-100">
-                                                <button
-                                                    className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2 hover:gap-3 transition-all"
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        setSelectedProduct(prod);
-                                                    }}
-                                                >
-                                                    View Details <ArrowRight size={14} />
-                                                </button>
+                                {cat.products.map((prod, index) => (
+                                    <ScrollReveal key={prod.id} delay={index * 0.1}>
+                                        <motion.div
+                                            className="group flex flex-col h-full cursor-pointer"
+                                            onClick={() => setSelectedProduct(prod)}
+                                            whileHover={{ y: -8 }}
+                                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                        >
+                                            {/* 圖片區域縮小並標準化 */}
+                                            <div className="relative overflow-hidden rounded-xl bg-white shadow-sm border border-slate-100 aspect-[4/3] mb-6 group-hover:shadow-xl group-hover:shadow-emerald-900/5 transition-shadow duration-300">
+                                                <div className="absolute inset-0 bg-emerald-50/0 group-hover:bg-emerald-50/30 transition-colors duration-300 z-10" />
+                                                <img
+                                                    src={prod.img}
+                                                    alt={prod.title}
+                                                    className="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-700 ease-out relative z-0"
+                                                />
                                             </div>
-                                        </div>
-                                    </motion.div>
+
+                                            {/* 內容區域縮小 */}
+                                            <div className="flex-1 flex flex-col">
+                                                <h3 className="text-lg font-bold text-slate-900 mb-2 leading-tight group-hover:text-primary transition-colors">
+                                                    {prod.title}
+                                                </h3>
+                                                <p className="text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3">
+                                                    {prod.p}
+                                                </p>
+
+                                                <div className="mt-auto pt-4 border-t border-slate-100">
+                                                    <button
+                                                        className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2 group-hover:gap-3 group-hover:text-primary transition-all"
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setSelectedProduct(prod);
+                                                        }}
+                                                    >
+                                                        View Details <ArrowRight size={14} />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    </ScrollReveal>
                                 ))}
                             </div>
                         </div>
