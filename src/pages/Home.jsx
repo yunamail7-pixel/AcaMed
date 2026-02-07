@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { ChevronRight, Beaker, Cpu, Globe, Shield, Database } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import ScrollReveal from '../components/ScrollReveal';
+import imgReishi from '../assets/img_reishi.jpg';
+import imgLab from '../assets/img_lab.jpg';
 
 const Home = () => {
     const { t } = useTranslation();
@@ -12,7 +14,7 @@ const Home = () => {
     // Hero carousel logic remains the same
     const slides = [
         {
-            image: "/img_reishi.jpg", // Local Reishi Image
+            image: imgReishi, // Local Reishi Image
             tag: t('home.hero_tag'),
             title: t('home.hero_title'),
             subtitle: t('home.hero_subtitle'),
@@ -26,7 +28,7 @@ const Home = () => {
             desc: t('home.slide2_desc'),
         },
         {
-            image: "/img_lab.jpg", // Local Lab Image
+            image: imgLab, // Local Lab Image
             tag: t('home.slide3_tag'),
             title: t('home.slide3_title'),
             subtitle: t('home.slide3_subtitle'),
